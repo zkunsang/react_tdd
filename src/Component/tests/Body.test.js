@@ -8,6 +8,6 @@ import reducers from '../../Reducers';
 const store = createStore(reducers);
 
 test("dev load dev saleInfo data", () => {
-    render(<Provider store={store}><BodyComponent /></Provider>)
-    // expect()
+  render(<Provider store={store}><BodyComponent /></Provider>)
+  // expect()
 })

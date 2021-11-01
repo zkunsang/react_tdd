@@ -9,35 +9,35 @@ import reducers from '../../Reducers';
 const store = createStore(reducers);
 
 test("dev, live button exists", () => {
-    render(<Provider store={store}><Header /></Provider>);
+  render(<Provider store={store}><Header /></Provider>);
 
-    const buttonElements = screen.getAllByRole("button");
+  const buttonElements = screen.getAllByRole("button");
 
-    const buttons = buttonElements.map((item) => item.textContent);
+  const buttons = buttonElements.map((item) => item.textContent);
 
-    expect(buttons).toEqual(["dev", "live"]);
+  expect(buttons).toEqual(["dev", "live"]);
 })
 
 test("on load reducer-store current server status dev", () => {
-    render(<Provider store={store}><Header /></Provider>);
+  render(<Provider store={store}><Header /></Provider>);
 
-    const devButtonElements = screen.getByRole("button", { name: "dev" });
+  const devButtonElements = screen.getByRole("button", { name: "dev" });
 
-    userEvent.click(devButtonElements);
+  userEvent.click(devButtonElements);
 
-    const labelElements = screen.getByText("dev server");
+  const labelElements = screen.getByText("dev server");
 
-    expect(labelElements).toBeInTheDocument();
+  expect(labelElements).toBeInTheDocument();
 })
 
 test("on load reducer-store current server status live", () => {
-    render(<Provider store={store}><Header /></Provider>);
+  render(<Provider store={store}><Header /></Provider>);
 
-    const devButtonElements = screen.getByRole("button", { name: "live" });
+  const devButtonElements = screen.getByRole("button", { name: "live" });
 
-    userEvent.click(devButtonElements);
+  userEvent.click(devButtonElements);
 
-    const labelElements = screen.getByText("live server");
+  const labelElements = screen.getByText("live server");
 
-    expect(labelElements).toBeInTheDocument();
+  expect(labelElements).toBeInTheDocument();
 })
